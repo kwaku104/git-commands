@@ -1,0 +1,86 @@
+	Show Commit History
+* git log
+* git log --oneline
+* git log --stat
+* git log -p
+* git diff
+* git log --decorate
+* $ git tag -d- (Delete Tag)
+* git tag -a v1.0 a87984 (add tag to a specific commit)
+* git log --oneline --decorate
+* git checkout sidebar
+* git branch sidebar 5bfe5e7 (Create branch on specific commit)
+* git checkout -b footer master (the git checkout command to create our new footer branch and have this footer branch start at the same location as the master branch)
+* git log --oneline --decorate --graph --all ( The --graph flag adds the bullets and lines to the leftmost part of the output. This shows the actual branching that's happening. The --all flag is what displays all of the branches in the repository.)
+* git reset --hard HEAD^ (use this command to undo the merge)
+
+git show
+The git show command will show only one commit. So don't get alarmed when you can't find any other commits - it only shows one. The output of the git show command is exactly the same as the git log -p command. So by default, git show displays:
+* he commit
+* the author
+* the date
+* the commit message
+* the patch information
+
+However, git show can be combined with most of the other flags we've looked at:
+* --stat - to show the how many files were changed and the number of lines that were added/removed
+* -p or --patch - this the default, but if --stat is used, the patch won't display, so pass -p to add it again
+* -w - to ignore changes to whitespace
+ 
+
+Git Tag Command
+$ git tag -a v1.0
+CAREFUL: In the command above (git tag -a v1.0) the -a flag is used. This flag tells Git to create an annotated flag. If you don't provide the flag (i.e. git tag v1.0) then it'll create what's called a lightweight tag.
+
+Git Branch Recap
+To recap, the git branch command is used to manage branches in Git:
+# to list all branches
+$ git branch
+
+# to create a new "footer-fix" branch
+$ git branch footer-fix
+
+# to delete the "footer-fix" branch
+$ git branch -d footer-fix
+
+The Merge Command
+The git merge command is used to combine Git branches:
+$ git merge <name-of-branch-to-merge-in>
+When a merge happens, Git will:
+* look at the branches that it's going to merge
+* look back along the branch's history to find a single commit that both branches have in their commit history
+* combine the lines of code that were changed on the separate branches together
+* makes a commit to record the merge
+
+Changing The Last Commit
+$ git commit --amend 
+If your Working Directory is clean (meaning there aren't any uncommitted changes in the repository), then running git commit --amend will let you provide a new commit message. 
+
+Add Forgotten Files To Commit
+Alternatively, git commit --amend will let you include files (or changes to files) you might've forgotten to include. 
+* edit the file(s)
+* save the file(s)
+* stage the file(s)
+* and run git commit --amend
+
+The git revert Command
+The git revert command is used to reverse a previously made commit:
+git revert <SHA-of-commit-to-revert>
+This command:
+* will undo the changes that were made by the provided commit
+* creates a new commit to record the change
+
+git push --set-upstream <url> master(or whatever branch you’re pushing to)
+
+
+git shortlog - displays an alphabetical list of names and the commit messages that go along with them.
+
+git shortly -s -n - to see just the number of commits that each developer has made
+
+git log --author=<authorname> - display all of the commits by an author
+
+git log —grep=<specific commit word> - filter down to just the commits that reference a particular word 
+
+“git rm --cached <file>..." to unstage
+
+git log --grep=<"specific commit word"> - If you're trying to search for something that is multiple words and has spaces between the words, you need to wrap everything in quotes. 
