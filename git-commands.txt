@@ -37,6 +37,9 @@ To recap, the git branch command is used to manage branches in Git:
 # to list all branches
 $ git branch
 
+# to switch branches
+$ git checkout <feature_branch>
+
 # to create a new "footer-fix" branch
 $ git branch footer-fix
 
